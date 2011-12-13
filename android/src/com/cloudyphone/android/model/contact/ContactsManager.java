@@ -1,6 +1,7 @@
 package com.cloudyphone.android.model.contact;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
@@ -15,7 +16,7 @@ public class ContactsManager {
 	 * @returns contacts if there is any contact.
 	 */
 	public Contacts getAllContacts(ContentResolver cr) {
-		ArrayList<Contact> contacts = new ArrayList<Contact>();
+		Collection<ParseContact> contacts = new ArrayList<ParseContact>();
 
 		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
 				null, null, null);
@@ -40,8 +41,8 @@ public class ContactsManager {
 						// get all phone numbers
 						ArrayList<String> phoneNumbers = getPhoneNumbers(id, cr);
 
-						Contact c = new Contact(Long.parseLong(id), name,
-								phoneNumbers);
+						ParseContact c = new ParseContact(Long.parseLong(id),
+								name, phoneNumbers);
 						contacts.add(c);
 					}
 				}

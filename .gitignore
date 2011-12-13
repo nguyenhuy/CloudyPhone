@@ -1,0 +1,14 @@
+.gaedata/
+.gaedata/*
+.pyc
+*.pyc
+.pyco
+*.DS_Store
+*.project
+bin/
+gen/
+*.properties
+*.class
+*.apk
+*.dex
+*.classpath

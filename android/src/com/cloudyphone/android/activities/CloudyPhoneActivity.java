@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.cloudyphone.android.R;
+import com.cloudyphone.android.controllers.SyncThread;
 import com.parse.Parse;
-import com.parse.ParseObject;
 import com.parse.PushService;
 
 public class CloudyPhoneActivity extends Activity {
@@ -34,8 +34,6 @@ public class CloudyPhoneActivity extends Activity {
 	}
 
 	private void testParse() {
-		ParseObject testObject = new ParseObject("TestObject");
-		testObject.put("foo", "bar");
-		testObject.saveInBackground();
+		new SyncThread(this).start();
 	}
 }
