@@ -27,9 +27,10 @@ public class SmsManager {
 
 		while (cursor.moveToNext()) {
 			threadId = cursor.getLong(1);
-			phoneNumber = cursor.getString(2);
 
 			if (!threads.containsKey(threadId)) {
+				phoneNumber = cursor.getString(2);
+
 				/* thread does not exist, create one */
 				threads.put(threadId, new JSONSmsThread(threadId, phoneNumber,
 						new JSONArray()));
@@ -46,8 +47,7 @@ public class SmsManager {
 			type = cursor.getLong(5);
 
 			// put the new message to messages list of the thread
-			messages.put(new JSONSmsMessage(messageId, threadId, phoneNumber,
-					date, body, type));
+			messages.put(new JSONSmsMessage(messageId, date, body, type));
 		}
 
 		cursor.close();
