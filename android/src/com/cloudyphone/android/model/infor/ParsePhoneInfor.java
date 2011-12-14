@@ -4,7 +4,7 @@ import android.os.Build;
 
 import com.parse.ParseObject;
 
-public class PhoneInfor extends ParseObject {
+public class ParsePhoneInfor extends ParseObject {
 
 	private static final String BOARD = "board", BRAND = "brand",
 			CPU_ABI = "cpuAbi", DEVICE = "device", DISPLAY = "display",
@@ -12,8 +12,8 @@ public class PhoneInfor extends ParseObject {
 			MANUFACTURER = "manufacterer", MODEL = "model",
 			PRODUCT = "product", TAGS = "tags", TYPE = "type", USER = "user";
 
-	public PhoneInfor() {
-		super(PhoneInfor.class.getSimpleName());
+	public ParsePhoneInfor() {
+		super(ParsePhoneInfor.class.getSimpleName());
 
 		put(BOARD, Build.BOARD);
 		put(BRAND, Build.BRAND);

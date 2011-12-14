@@ -1,25 +1,37 @@
 package com.cloudyphone.android.model.sms;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.json.JSONArray;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 public class ParseSmsThreads extends ParseObject {
 
 	private static final String THREADS = "threads";
 
-	public ParseSmsThreads(Collection<SmsThread> smsThreads) {
+	private Collection<JSONSmsThread> smsThreads;
+
+	public ParseSmsThreads(Collection<JSONSmsThread> smsThreads) {
 		super(ParseSmsThreads.class.getSimpleName());
+		this.smsThreads = smsThreads;
+	}
 
-		// Convert all Sms threads to parse sms threads
-		Collection<ParseSmsThread> threads = new ArrayList<ParseSmsThread>();
-		for (SmsThread smsThread : smsThreads) {
-			threads.add(smsThread.toParseSmsThread());
-		}
+	@Override
+	public void save() throws ParseException {
+		saveSmsThreads();
+		super.save();
+	}
 
-		put(THREADS, new JSONArray(threads));
+	@Override
+	public void saveInBackground(SaveCallback callback) {
+		saveSmsThreads();
+		super.saveInBackground(callback);
+	}
+
+	private void saveSmsThreads() {
+		put(THREADS, new JSONArray(smsThreads));
 	}
 }

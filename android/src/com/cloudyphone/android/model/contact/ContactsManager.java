@@ -1,11 +1,17 @@
 package com.cloudyphone.android.model.contact;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.database.Cursor;
+import android.net.Uri;
 import android.provider.ContactsContract;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
 
 public class ContactsManager {
 
@@ -15,73 +21,95 @@ public class ContactsManager {
 	 * @param cr
 	 * @returns contacts if there is any contact.
 	 */
-	public Contacts getAllContacts(ContentResolver cr) {
-		Collection<ParseContact> contacts = new ArrayList<ParseContact>();
+	public ParseContacts getAllContacts(ContentResolver cr) {
+		Collection<JSONContact> contacts = new ArrayList<JSONContact>();
 
-		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
+		// Contacts cursor
+		Cursor cursor = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
 				null, null, null);
 
-		if (cur != null && cur.getCount() > 0) {
-			try {
-				while (cur.moveToNext()) {
-					// check if the contact has phone or not
-					boolean hasPhone = Integer
-							.parseInt(cur.getString(cur
-									.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0;
+		Cursor phonesCursor;
+		String contactId, name;
+		String selection;
+		String equal = " = ";
+		Collection<String> numbers;
 
-					if (hasPhone) {
-						// Has phone, get the information and add to contacts
-						// list
-						String id = cur.getString(cur
-								.getColumnIndex(ContactsContract.Contacts._ID));
-						String name = cur
-								.getString(cur
-										.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+		while (cursor.moveToNext()) {
+			// get contact id
+			contactId = cursor.getString(cursor
+					.getColumnIndex(ContactsContract.Contacts._ID));
 
-						// get all phone numbers
-						ArrayList<String> phoneNumbers = getPhoneNumbers(id, cr);
+			// Construct the selection for phone cursor
+			selection = new StringBuilder(Phone.CONTACT_ID).append(equal)
+					.append(contactId).toString();
 
-						ParseContact c = new ParseContact(Long.parseLong(id),
-								name, phoneNumbers);
-						contacts.add(c);
-					}
-				}
-			} finally {
-				cur.close();
+			// the cursor to get phone numbers
+			phonesCursor = cr.query(Phone.CONTENT_URI, null, selection, null,
+					null);
+
+			// get phone numbers
+			numbers = new ArrayList<String>();
+			while (phonesCursor.moveToNext()) {
+				numbers.add(phonesCursor.getString(phonesCursor
+						.getColumnIndex(Phone.NUMBER)));
+			}
+			phonesCursor.close();
+
+			// Only add contacts which have at least phone number
+			if (numbers.size() > 0) {
+				name = cursor
+						.getString(cursor
+								.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+
+				contacts.add(new JSONContact(Long.parseLong(contactId), name,
+						numbers));
 			}
 		}
 
-		return new Contacts(contacts);
+		cursor.close();
+
+		return new ParseContacts(contacts);
 	}
 
-	/**
-	 * Returns phone numbers of the contact with that id
-	 * 
-	 * @param id
-	 * @param cr
-	 * @return
-	 */
-	private ArrayList<String> getPhoneNumbers(String id, ContentResolver cr) {
+	public Collection<ParseContactImg> getAllContactImages(ContentResolver cr,
+			Collection<JSONContact> contacts) {
 
-		ArrayList<String> phones = new ArrayList<String>();
-
-		Cursor pCur = cr.query(
-				ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
-				ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
-				new String[] { id }, null);
-
-		if (pCur != null) {
+		Collection<ParseContactImg> images = new ArrayList<ParseContactImg>();
+		for (JSONContact c : contacts) {
 			try {
-				if (pCur.getCount() > 0) {
-					while (pCur.moveToNext()) {
-						phones.add(pCur.getString(pCur
-								.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)));
-					}
-				}
-			} finally {
-				pCur.close();
+				images.add(getContactImg(cr, c.getId()));
+				// if exception is thrown, ignore this image
+			} catch (FileNotFoundException e) {
+			} catch (IOException e) {
 			}
 		}
-		return (phones);
+
+		return images;
+	}
+
+	private ParseContactImg getContactImg(ContentResolver cr, long id)
+			throws FileNotFoundException, IOException {
+
+		Uri auri = getPhotoUri(id);
+		InputStream is = cr.openInputStream(auri);
+		int fileLength = is.available();
+
+		if (fileLength > 0) {
+			byte[] data = ParseContactImg.convertFileToByte(is, fileLength);
+			return new ParseContactImg(id, data);
+		}
+
+		return null;
+	}
+
+	private Uri getPhotoUri(long contactId) {
+		Uri contactUri = ContentUris.withAppendedId(
+				android.provider.ContactsContract.Contacts.CONTENT_URI,
+				contactId);
+		Uri photoUri = Uri
+				.withAppendedPath(
+						contactUri,
+						android.provider.ContactsContract.Contacts.Photo.CONTENT_DIRECTORY);
+		return photoUri;
 	}
 }
