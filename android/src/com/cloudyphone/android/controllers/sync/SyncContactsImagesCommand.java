@@ -13,6 +13,7 @@ import com.parse.ParseException;
 public class SyncContactsImagesCommand implements Command {
 	private ContentResolver cr;
 	private ParseContacts contacts;
+	private boolean isFinished = false;
 
 	public SyncContactsImagesCommand(ContentResolver cr, ParseContacts contacts) {
 		this.cr = cr;
@@ -33,7 +34,14 @@ public class SyncContactsImagesCommand implements Command {
 			}
 		}
 
+		isFinished = true;
+
 		// TODO may store file list in Parse
 		// TODO may nofity server when all contact images are ok
+	}
+
+	@Override
+	public boolean isFinished() {
+		return isFinished;
 	}
 }

@@ -1,12 +1,10 @@
 package com.cloudyphone.android.controllers.sync;
 
+import com.cloudyphone.android.utils.Logger;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Looper;
-
-import com.cloudyphone.android.model.contact.ParseContacts;
-import com.cloudyphone.android.model.infor.ParsePhoneInfor;
-import com.cloudyphone.android.model.sms.ParseSmsThreads;
 
 /* 
  * When this thread is run, it will sync with pc, it should be check network connection
@@ -25,16 +23,42 @@ public class SyncThread extends Thread {
 		super.run();
 		Looper.prepare();
 
-		// Find, delete and sync sms threads
-		new UpdateThread(ParseSmsThreads.class.getSimpleName(),
-				new SyncSmsThreadsCommand(cr)).start();
+		int tryTime = 30;
+		long[] times = new long[tryTime];
 
-		// Find, delete and sync contacts
-		new UpdateThread(ParseContacts.class.getSimpleName(),
-				new SyncContactsCommand(cr)).start();
+		for (int i = 0; i < tryTime; ++i) {
+			long time = System.currentTimeMillis();
 
-		// Find, delete and sync phone infor
-		new UpdateThread(ParsePhoneInfor.class.getSimpleName(),
-				new SyncPhoneInforCommand()).start();
+			// Find, delete and sync sms threads
+			Command c1 = new SyncSmsThreadsCommand(cr);
+			new UpdateThread(c1).start();
+
+			// Find, delete and sync contacts
+			Command c2 = new SyncContactsCommand(cr);
+			new UpdateThread(c2).start();
+
+			// Find, delete and sync phone infor
+			Command c3 = new SyncPhoneInforCommand();
+			new UpdateThread(c3).start();
+
+			while (!c1.isFinished() || !c2.isFinished() || !c3.isFinished()) {
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+				}
+			}
+
+			times[i] = System.currentTimeMillis() - time;
+			Logger.print(this, "Benchmark: " + times[i]);
+		}
+
+		// TODO benchmark
+		long average = 0;
+		for (long l : times) {
+			average += l;
+		}
+		average /= tryTime;
+
+		Logger.print(this, "Benchmark avarage: " + average);
 	}
 }

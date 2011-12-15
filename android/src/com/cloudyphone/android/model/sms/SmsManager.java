@@ -52,6 +52,6 @@ public class SmsManager {
 
 		cursor.close();
 
-		return new ParseSmsThreads(threads.values());
+		return new ParseSmsThreads(new JSONArray(threads.values()));
 	}
 }

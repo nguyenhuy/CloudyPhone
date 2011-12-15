@@ -8,6 +8,7 @@ import com.parse.ParseException;
 
 public class SyncSmsThreadsCommand implements Command {
 	private ContentResolver cr;
+	private boolean isFinished = false;
 
 	public SyncSmsThreadsCommand(ContentResolver cr) {
 		this.cr = cr;
@@ -23,6 +24,13 @@ public class SyncSmsThreadsCommand implements Command {
 		} catch (ParseException e) {
 		}
 
+		isFinished = true;
+
 		// TODO may notify server
+	}
+
+	@Override
+	public boolean isFinished() {
+		return isFinished;
 	}
 }
