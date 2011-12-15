@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:padding="@dimen/padding"
+        android:src="@drawable/ic_logo" />
+
+    <EditText
+        android:id="@+id/activity_login_username_et"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:background="@drawable/edittext_top_rounded_selector"
+        android:hint="@string/username"
+        android:maxLines="1"
+        android:textSize="@dimen/text_size_edittext" />
+
+    <EditText
+        android:id="@+id/activity_login_password_et"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:background="@drawable/edittext_bottom_rounded_selector"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:textSize="@dimen/text_size_edittext" />
+
+    <Button
+        android:id="@+id/activity_login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:background="@drawable/btn_green_full_rounded_selector"
+        android:padding="@dimen/padding"
+        android:text="@string/login"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_edittext" />
+
+</LinearLayout>
