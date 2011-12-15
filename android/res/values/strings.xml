@@ -3,5 +3,17 @@
 
     <string name="hello">Hello World, CloudyPhoneActivity!</string>
     <string name="app_name">CloudyPhone</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="create">Create</string>
+    <string name="new_to_cloudy_phone">New to CloudyPhone?</string>
+    <string name="create_new_account">Create New Account</string>
+
+    <color name="blue_light">#83BBE7</color>
+    <color name="blue_dark">#257DC1</color>
+    <color name="blue_medium">#519AD3</color>
+    <color name="blue_text">#1A74BA</color>
 
 </resources>

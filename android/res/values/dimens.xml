@@ -1,0 +1,8 @@
+<resources>
+
+    <dimen name="text_size_edittext">30dp</dimen>
+    <dimen name="text_size_small">20dp</dimen>
+    <dimen name="padding">5dp</dimen>
+    <dimen name="margin">5dp</dimen>
+
+</resources>
