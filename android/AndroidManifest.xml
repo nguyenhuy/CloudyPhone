@@ -48,6 +48,12 @@
                 <action android:name="com.cloudyphone.makecall" />
             </intent-filter>
         </receiver>
+        <!-- Send SMS receiver -->
+        <receiver android:name=".controller.receivers.SendSmsReceiver" >
+            <intent-filter >
+                <action android:name="com.cloudyphone.sendsms" />
+            </intent-filter>
+        </receiver>
     </application>
 
     <!-- Permission from Parse -->
@@ -60,7 +66,9 @@
     <uses-permission android:name="android.permission.READ_SMS" />
 
     <!-- Permissions for push receivers -->
-    <!-- Call receiver -->
+    <!-- Make call receiver -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- Send Sms receiver -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
 </manifest>

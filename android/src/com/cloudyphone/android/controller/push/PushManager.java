@@ -1,8 +1,6 @@
 package com.cloudyphone.android.controller.push;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.IntentFilter;
 
 import com.cloudyphone.android.controller.activities.CloudyPhoneActivity;
 import com.parse.ParseUser;

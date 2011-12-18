@@ -7,7 +7,6 @@ import android.os.Bundle;
 import com.cloudyphone.android.Constants;
 import com.cloudyphone.android.R;
 import com.cloudyphone.android.controller.push.PushManager;
-import com.cloudyphone.android.controller.sync.SyncThread;
 import com.parse.Parse;
 import com.parse.ParseUser;
 
