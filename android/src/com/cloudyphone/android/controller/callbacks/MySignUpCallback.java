@@ -1,9 +1,9 @@
-package com.cloudyphone.android.controllers.callbacks;
+package com.cloudyphone.android.controller.callbacks;
 
 import android.content.Context;
 import android.content.Intent;
 
-import com.cloudyphone.android.activities.CloudyPhoneActivity;
+import com.cloudyphone.android.controller.activities.CloudyPhoneActivity;
 import com.parse.ParseException;
 import com.parse.SignUpCallback;
 

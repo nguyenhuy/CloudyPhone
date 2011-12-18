@@ -1,4 +1,4 @@
-package com.cloudyphone.android.controllers.sync;
+package com.cloudyphone.android.controller.sync;
 
 
 /**

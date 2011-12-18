@@ -1,4 +1,4 @@
-package com.cloudyphone.android.controllers.network;
+package com.cloudyphone.android.controller.network;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.cloudyphone.android.activities;
+package com.cloudyphone.android.controller.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.cloudyphone.android.R;
-import com.cloudyphone.android.controllers.callbacks.MySignUpCallback;
-import com.cloudyphone.android.controllers.listeners.SignupClickListener;
+import com.cloudyphone.android.controller.callbacks.MySignUpCallback;
+import com.cloudyphone.android.controller.listeners.SignupClickListener;
 
 public class SignupActivity extends Activity {
 	@Override

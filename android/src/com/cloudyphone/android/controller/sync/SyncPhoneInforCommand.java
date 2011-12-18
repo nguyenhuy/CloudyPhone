@@ -1,4 +1,4 @@
-package com.cloudyphone.android.controllers.sync;
+package com.cloudyphone.android.controller.sync;
 
 import com.cloudyphone.android.model.infor.ParsePhoneInfor;
 import com.parse.ParseException;

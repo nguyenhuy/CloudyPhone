@@ -1,11 +1,11 @@
-package com.cloudyphone.android.controllers.listeners;
+package com.cloudyphone.android.controller.listeners;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.cloudyphone.android.activities.SignupActivity;
+import com.cloudyphone.android.controller.activities.SignupActivity;
 
 public class StartSignupClickListener implements OnClickListener {
 	private Context context;
