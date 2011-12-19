@@ -29,19 +29,19 @@ public class SyncThread extends Thread {
 		for (int i = 0; i < tryTime; ++i) {
 			long time = System.currentTimeMillis();
 
-			// Find, delete and sync sms threads
+			// Sync sms threads
 			Command c1 = new SyncSmsThreadsCommand(cr);
 			new UpdateThread(c1).start();
 
-			// Find, delete and sync contacts
+			// Sync contacts
 			Command c2 = new SyncContactsCommand(cr);
 			new UpdateThread(c2).start();
 
-			// Find, delete and sync phone infor
-			Command c3 = new SyncPhoneInforCommand();
-			new UpdateThread(c3).start();
+			// sync phone infor
+			// Command c3 = new SyncPhoneInforCommand();
+			// new UpdateThread(c3).start();
 
-			while (!c1.isFinished() || !c2.isFinished() || !c3.isFinished()) {
+			while (!c1.isFinished() || !c2.isFinished()) {
 				try {
 					Thread.sleep(10);
 				} catch (InterruptedException e) {

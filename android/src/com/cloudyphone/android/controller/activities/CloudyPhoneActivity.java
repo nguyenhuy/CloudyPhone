@@ -21,11 +21,11 @@ public class CloudyPhoneActivity extends Activity {
 				Constants.PARSE_CLIENT_KEY);
 
 		// TODO do like this as main workflow
-		// checkUserLogin();
+		 checkUserLogin();
 
-		// TODO test
-		setContentView(R.layout.main);
-		subscribePush();
+		// TODO test push without login
+//		setContentView(R.layout.main);
+//		subscribePush();
 	}
 
 	private void checkUserLogin() {
