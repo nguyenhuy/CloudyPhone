@@ -42,18 +42,31 @@
         </receiver>
 
         <!-- Parse Push receviers -->
-        <!-- Call receiver, will make phone call -->
-        <receiver android:name=".controller.receivers.MakeCallReceiver" >
+        <!-- Sync receiver -->
+        <receiver android:name=".controller.receivers.SyncReceiver" >
             <intent-filter >
-                <action android:name="com.cloudyphone.makecall" />
+                <action android:name="com.cloudyphone.sync" />
             </intent-filter>
         </receiver>
-        <!-- Send SMS receiver -->
+         <!-- Send SMS receiver -->
         <receiver android:name=".controller.receivers.SendSmsReceiver" >
             <intent-filter >
                 <action android:name="com.cloudyphone.sendsms" />
             </intent-filter>
         </receiver>
+        <!-- Make call receiver, will make phone call -->
+        <receiver android:name=".controller.receivers.MakeCallReceiver" >
+            <intent-filter >
+                <action android:name="com.cloudyphone.makecall" />
+            </intent-filter>
+        </receiver>
+        <!-- Deny call receiver, will make phone call -->
+        <receiver android:name=".controller.receivers.DenyCallReceiver" >
+            <intent-filter >
+                <action android:name="com.cloudyphone.denycall" />
+            </intent-filter>
+        </receiver>
+       
     </application>
 
     <!-- Permission from Parse -->

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.telephony.SmsManager;
 import android.text.TextUtils;

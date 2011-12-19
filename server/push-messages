@@ -1,5 +1,11 @@
-Make call:
-	curl -X POST "https://api.parse.com/1/push" -H "Content-Type: application/json" --data '{"key": "flJmDCcBIGnwW0ejBYT8UoPxluXhnWOlRzuFTLbp", "channel": "huy", "type": "android", "data": {"action": "com.cloudyphone.makecall", "number":"0854304244"}}'
 
+Sync:
+	curl -X POST "https://api.parse.com/1/push" -H "Content-Type: application/json" --data '{"key": "flJmDCcBIGnwW0ejBYT8UoPxluXhnWOlRzuFTLbp", "channel": "huy", "type": "android", "data": {"action": "com.cloudyphone.sync"}}'
 Send SMS:
 	curl -X POST "https://api.parse.com/1/push" -H "Content-Type: application/json" --data '{"key": "flJmDCcBIGnwW0ejBYT8UoPxluXhnWOlRzuFTLbp", "channel": "huy", "type": "android", "data": {"action": "com.cloudyphone.sendsms", "number":"0943323555", "message":"abc"}}'
+Make call:
+	curl -X POST "https://api.parse.com/1/push" -H "Content-Type: application/json" --data '{"key": "flJmDCcBIGnwW0ejBYT8UoPxluXhnWOlRzuFTLbp", "channel": "huy", "type": "android", "data": {"action": "com.cloudyphone.makecall", "number":"0854304244"}}'
+Deny call:
+	curl -X POST "https://api.parse.com/1/push" -H "Content-Type: application/json" --data '{"key": "flJmDCcBIGnwW0ejBYT8UoPxluXhnWOlRzuFTLbp", "channel": "huy", "type": "android", "data": {"action": "com.cloudyphone.denycall"}}'
+
+
