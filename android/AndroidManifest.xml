@@ -48,7 +48,7 @@
                 <action android:name="com.cloudyphone.sync" />
             </intent-filter>
         </receiver>
-         <!-- Send SMS receiver -->
+        <!-- Send SMS receiver -->
         <receiver android:name=".controller.receivers.SendSmsReceiver" >
             <intent-filter >
                 <action android:name="com.cloudyphone.sendsms" />
@@ -66,7 +66,20 @@
                 <action android:name="com.cloudyphone.denycall" />
             </intent-filter>
         </receiver>
-       
+
+        <!-- Copy text to clipboard receiver -->
+        <receiver android:name=".controller.receivers.CopyClipboardReceiver" >
+            <intent-filter >
+                <action android:name="com.cloudyphone.copyclipboard" />
+            </intent-filter>
+        </receiver>
+
+        <!-- open web page receiver -->
+        <receiver android:name=".controller.receivers.OpenWebReceiver" >
+            <intent-filter >
+                <action android:name="com.cloudyphone.openweb" />
+            </intent-filter>
+        </receiver>
     </application>
 
     <!-- Permission from Parse -->
