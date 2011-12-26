@@ -27,7 +27,7 @@ public class SyncContactsCommand implements Command {
 			return;
 		}
 
-		ParseContacts contacts = new ContactsManager().getAllContacts(cr);
+		ParseContacts contacts = ContactsManager.getAllContacts(cr);
 		// set the sms threads to be accessible by the current user only
 		contacts.setACL(new ParseACL(parseUser));
 

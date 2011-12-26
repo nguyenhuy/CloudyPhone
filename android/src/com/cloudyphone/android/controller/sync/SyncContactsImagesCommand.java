@@ -21,8 +21,8 @@ public class SyncContactsImagesCommand implements Command {
 
 	@Override
 	public void execute() {
-		Collection<ParseContactImg> imgs = new ContactsManager()
-				.getAllContactImages(cr, contacts.getContacts());
+		Collection<ParseContactImg> imgs = ContactsManager.getAllContactImages(
+				cr, contacts.getContacts());
 
 		// Save all images
 		for (ParseContactImg img : imgs) {

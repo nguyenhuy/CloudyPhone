@@ -12,7 +12,7 @@ public class SmsManager {
 
 	private static final Uri SMS_CONTENT_URI = Uri.parse("content://sms/");
 
-	public ParseSmsThreads getSmsThreads(ContentResolver cr) {
+	public static ParseSmsThreads getSmsThreads(ContentResolver cr) {
 
 		TreeMap<Long, JSONSmsThread> threads = new TreeMap<Long, JSONSmsThread>();
 

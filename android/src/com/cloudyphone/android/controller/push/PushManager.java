@@ -15,7 +15,7 @@ public class PushManager {
 	 * @throws Exception
 	 *             if user was not logged in
 	 */
-	private String getChannel(Context context) throws Exception {
+	private static String getChannel(Context context) throws Exception {
 		ParseUser user = ParseUser.getCurrentUser();
 
 		if (user == null) {
@@ -33,7 +33,7 @@ public class PushManager {
 	 * @throws Exception
 	 *             if user was not logged in
 	 */
-	public void subscribe(Context context) throws Exception {
+	public static void subscribe(Context context) throws Exception {
 		// Since we don't launch activity when receive push notification
 		// Activity can be set to whatever activity
 		// PushService.subscribe(context, getChannel(context),
@@ -49,7 +49,7 @@ public class PushManager {
 	 * @throws Exception
 	 *             if user was not logged in
 	 */
-	public void unsubscribe(Context context) throws Exception {
+	public static void unsubscribe(Context context) throws Exception {
 		// PushService.unsubscribe(context, getChannel(context));
 
 		// TODO test only

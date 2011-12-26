@@ -28,7 +28,7 @@ public class SyncSmsThreadsCommand implements Command {
 		}
 
 		// Get the sms threads
-		ParseSmsThreads smsThreads = new SmsManager().getSmsThreads(cr);
+		ParseSmsThreads smsThreads = SmsManager.getSmsThreads(cr);
 		// set the sms threads to be accessible by the current user only
 		smsThreads.setACL(new ParseACL(parseUser));
 

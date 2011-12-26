@@ -21,7 +21,7 @@ public class ContactsManager {
 	 * @param cr
 	 * @returns contacts if there is any contact.
 	 */
-	public ParseContacts getAllContacts(ContentResolver cr) {
+	public static ParseContacts getAllContacts(ContentResolver cr) {
 		Collection<JSONContact> contacts = new ArrayList<JSONContact>();
 
 		// Contacts cursor
@@ -71,8 +71,8 @@ public class ContactsManager {
 		return new ParseContacts(contacts);
 	}
 
-	public Collection<ParseContactImg> getAllContactImages(ContentResolver cr,
-			Collection<JSONContact> contacts) {
+	public static Collection<ParseContactImg> getAllContactImages(
+			ContentResolver cr, Collection<JSONContact> contacts) {
 
 		Collection<ParseContactImg> images = new ArrayList<ParseContactImg>();
 		for (JSONContact c : contacts) {
@@ -87,7 +87,7 @@ public class ContactsManager {
 		return images;
 	}
 
-	private ParseContactImg getContactImg(ContentResolver cr, long id)
+	private static ParseContactImg getContactImg(ContentResolver cr, long id)
 			throws FileNotFoundException, IOException {
 
 		Uri auri = getPhotoUri(id);
@@ -102,7 +102,7 @@ public class ContactsManager {
 		return null;
 	}
 
-	private Uri getPhotoUri(long contactId) {
+	private static Uri getPhotoUri(long contactId) {
 		Uri contactUri = ContentUris.withAppendedId(
 				android.provider.ContactsContract.Contacts.CONTENT_URI,
 				contactId);
