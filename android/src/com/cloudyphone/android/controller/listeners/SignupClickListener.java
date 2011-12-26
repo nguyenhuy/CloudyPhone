@@ -8,12 +8,11 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 public class SignupClickListener implements OnClickListener {
-	private EditText username, password, email;
+	private EditText password, email;
 	private SignUpCallback signUpCallback;
 
-	public SignupClickListener(EditText username, EditText password,
-			EditText email, SignUpCallback signUpCallback) {
-		this.username = username;
+	public SignupClickListener(EditText password, EditText email,
+			SignUpCallback signUpCallback) {
 		this.password = password;
 		this.email = email;
 		this.signUpCallback = signUpCallback;
@@ -22,9 +21,8 @@ public class SignupClickListener implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		ParseUser user = new ParseUser();
-		user.setUsername(username.getText().toString());
+		user.setUsername(email.getText().toString());
 		user.setPassword(password.getText().toString());
-		user.setEmail(email.getText().toString());
 
 		user.signUpInBackground(signUpCallback);
 	}

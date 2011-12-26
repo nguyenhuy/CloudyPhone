@@ -26,11 +26,11 @@ public class LoginActivity extends Activity {
 	}
 
 	private void setListeners() {
-		EditText username = (EditText) findViewById(R.id.username_et);
+		EditText email = (EditText) findViewById(R.id.email_et);
 		EditText password = (EditText) findViewById(R.id.password_et);
 		Button loginBtn = (Button) findViewById(R.id.login_btn);
 
-		loginBtn.setOnClickListener(new LoginClickListener(username, password,
+		loginBtn.setOnClickListener(new LoginClickListener(email, password,
 				new MyLoginCallback(this)));
 
 		Button signupBtn = (Button) findViewById(R.id.signup_btn);

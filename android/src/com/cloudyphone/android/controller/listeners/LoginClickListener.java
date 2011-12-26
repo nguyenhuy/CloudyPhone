@@ -8,19 +8,19 @@ import com.parse.LogInCallback;
 import com.parse.ParseUser;
 
 public class LoginClickListener implements OnClickListener {
-	private EditText username, password;
+	private EditText email, password;
 	private LogInCallback logInCallback;
 
-	public LoginClickListener(EditText username, EditText password,
+	public LoginClickListener(EditText email, EditText password,
 			LogInCallback loginCallback) {
-		this.username = username;
+		this.email = email;
 		this.password = password;
 		this.logInCallback = loginCallback;
 	}
 
 	@Override
 	public void onClick(View v) {
-		ParseUser.logInInBackground(username.getText().toString(), password
+		ParseUser.logInInBackground(email.getText().toString(), password
 				.getText().toString(), logInCallback);
 	}
 }

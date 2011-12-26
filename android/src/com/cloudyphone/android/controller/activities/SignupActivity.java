@@ -25,12 +25,11 @@ public class SignupActivity extends Activity {
 	}
 
 	private void setListeners() {
-		EditText username = (EditText) findViewById(R.id.username_et);
 		EditText password = (EditText) findViewById(R.id.password_et);
 		EditText email = (EditText) findViewById(R.id.email_et);
 		Button signupBtn = (Button) findViewById(R.id.signup_btn);
 
-		signupBtn.setOnClickListener(new SignupClickListener(username,
-				password, email, new MySignUpCallback(this)));
+		signupBtn.setOnClickListener(new SignupClickListener(password, email,
+				new MySignUpCallback(this)));
 	}
 }
