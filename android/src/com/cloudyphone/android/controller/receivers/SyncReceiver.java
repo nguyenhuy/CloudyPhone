@@ -2,14 +2,17 @@ package com.cloudyphone.android.controller.receivers;
 
 import org.json.JSONObject;
 
-import com.cloudyphone.android.controller.sync.SyncThread;
-
 import android.content.Context;
 
-public class SyncReceiver extends PushReceiver {
+import com.cloudyphone.android.controller.sync.SyncThread;
 
+public class SyncReceiver extends PushReceiver {
 	@Override
 	public void execute(Context context, JSONObject data) {
-		new SyncThread(context).start();
+		try {
+			new SyncThread(context).start();
+		} catch (Exception e) {
+			// TODO notify user here, not logged in yet
+		}
 	}
 }

@@ -1,10 +1,10 @@
 package com.cloudyphone.android.controller.sync;
 
-import com.cloudyphone.android.utils.Logger;
-
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Looper;
+
+import com.parse.ParseUser;
 
 /* 
  * When this thread is run, it will sync with pc, it should be check network connection
@@ -14,7 +14,12 @@ import android.os.Looper;
 public class SyncThread extends Thread {
 	private ContentResolver cr;
 
-	public SyncThread(Context context) {
+	public SyncThread(Context context) throws Exception {
+		if (ParseUser.getCurrentUser() == null) {
+			// not login yet
+			throw new Exception("Not logged in yet.");
+		}
+
 		this.cr = context.getContentResolver();
 	}
 
@@ -23,42 +28,16 @@ public class SyncThread extends Thread {
 		super.run();
 		Looper.prepare();
 
-		int tryTime = 30;
-		long[] times = new long[tryTime];
+		// Sync sms threads
+		Command c1 = new SyncSmsThreadsCommand(cr);
+		new UpdateThread(c1).start();
 
-		for (int i = 0; i < tryTime; ++i) {
-			long time = System.currentTimeMillis();
+		// Sync contacts
+		Command c2 = new SyncContactsCommand(cr);
+		new UpdateThread(c2).start();
 
-			// Sync sms threads
-			Command c1 = new SyncSmsThreadsCommand(cr);
-			new UpdateThread(c1).start();
-
-			// Sync contacts
-			Command c2 = new SyncContactsCommand(cr);
-			new UpdateThread(c2).start();
-
-			// sync phone infor
-			// Command c3 = new SyncPhoneInforCommand();
-			// new UpdateThread(c3).start();
-
-			while (!c1.isFinished() || !c2.isFinished()) {
-				try {
-					Thread.sleep(10);
-				} catch (InterruptedException e) {
-				}
-			}
-
-			times[i] = System.currentTimeMillis() - time;
-			Logger.print(this, "Benchmark: " + times[i]);
-		}
-
-		// TODO benchmark
-		long average = 0;
-		for (long l : times) {
-			average += l;
-		}
-		average /= tryTime;
-
-		Logger.print(this, "Benchmark avarage: " + average);
+		// sync phone infor
+		// Command c3 = new SyncPhoneInforCommand();
+		// new UpdateThread(c3).start();
 	}
 }

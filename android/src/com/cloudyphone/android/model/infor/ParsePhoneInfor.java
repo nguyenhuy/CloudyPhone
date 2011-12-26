@@ -2,9 +2,9 @@ package com.cloudyphone.android.model.infor;
 
 import android.os.Build;
 
-import com.parse.ParseObject;
+import com.cloudyphone.android.model.MyParseObject;
 
-public class ParsePhoneInfor extends ParseObject {
+public class ParsePhoneInfor extends MyParseObject {
 
 	private static final String BOARD = "board", BRAND = "brand",
 			CPU_ABI = "cpuAbi", DEVICE = "device", DISPLAY = "display",

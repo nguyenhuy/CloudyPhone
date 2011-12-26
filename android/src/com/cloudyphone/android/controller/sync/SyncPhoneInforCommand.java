@@ -6,12 +6,12 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 
 public class SyncPhoneInforCommand implements Command {
-	private boolean isFinished = false;
 
 	@Override
 	public void execute() {
-		// Get the current logged in user
 		ParseUser parseUser = ParseUser.getCurrentUser();
+
+		// Get the current logged in user
 		if (parseUser == null) {
 			// User did not log in
 			// Since the sms threads need to be accessible only from the logged
@@ -29,12 +29,6 @@ public class SyncPhoneInforCommand implements Command {
 		} catch (ParseException e) {
 		}
 
-		isFinished = true;
 		// TODO may notify server
-	}
-
-	@Override
-	public boolean isFinished() {
-		return isFinished;
 	}
 }

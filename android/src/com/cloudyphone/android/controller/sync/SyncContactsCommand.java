@@ -10,7 +10,6 @@ import com.parse.ParseUser;
 
 public class SyncContactsCommand implements Command {
 	private ContentResolver cr;
-	private boolean isFinished = false;
 
 	public SyncContactsCommand(ContentResolver cr) {
 		this.cr = cr;
@@ -37,17 +36,10 @@ public class SyncContactsCommand implements Command {
 		} catch (ParseException e) {
 		}
 
-		isFinished = true;
-
 		// Save contacts images
 		// TODO uncomment this to store images
 		// new SyncContactsImagesCommand(cr, contacts).execute();
 
 		// TODO may notify server
-	}
-
-	@Override
-	public boolean isFinished() {
-		return isFinished;
 	}
 }
