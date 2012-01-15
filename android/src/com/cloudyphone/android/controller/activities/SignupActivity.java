@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.cloudyphone.android.R;
-import com.cloudyphone.android.controller.callbacks.MySignUpCallback;
 import com.cloudyphone.android.controller.listeners.SignupClickListener;
 
 public class SignupActivity extends Activity {
@@ -29,7 +28,7 @@ public class SignupActivity extends Activity {
 		EditText email = (EditText) findViewById(R.id.email_et);
 		Button signupBtn = (Button) findViewById(R.id.signup_btn);
 
-		signupBtn.setOnClickListener(new SignupClickListener(password, email,
-				new MySignUpCallback(this)));
+		signupBtn.setOnClickListener(new SignupClickListener(this, password,
+				email));
 	}
 }

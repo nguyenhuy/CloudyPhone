@@ -1,8 +1,11 @@
 <resources>
 
+    <dimen name="margin">5dp</dimen>
     <dimen name="text_size_edittext">30dp</dimen>
     <dimen name="text_size_small">20dp</dimen>
-    <dimen name="padding">5dp</dimen>
-    <dimen name="margin">5dp</dimen>
+    <dimen name="btn_padding">10dp</dimen>
+    <dimen name="round">5dp</dimen>
+    <dimen name="border_width">1px</dimen>
+    <dimen name="border_width_focused">2px</dimen>
 
 </resources>

@@ -36,11 +36,11 @@
 
         <Button
             android:id="@+id/login_btn"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
-            android:background="@drawable/btn_green_full_rounded_selector"
-            android:padding="@dimen/padding"
+            android:background="@drawable/btn_full_rounded_selector"
+            android:padding="@dimen/btn_padding"
             android:text="@string/login"
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size_small" />
@@ -63,11 +63,11 @@
 
         <Button
             android:id="@+id/signup_btn"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
-            android:background="@drawable/btn_green_full_rounded_selector"
-            android:padding="@dimen/padding"
+            android:background="@drawable/btn_full_rounded_selector"
+            android:padding="@dimen/btn_padding"
             android:text="@string/create_new_account"
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size_small" />

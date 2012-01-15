@@ -1,5 +1,7 @@
 package com.cloudyphone.android.controller.sync;
 
+import com.cloudyphone.android.controller.commands.Command;
+
 
 /**
  * Update parse objects by find all of objects in the same class, delete them

@@ -1,4 +1,4 @@
-package com.cloudyphone.android.controller.sync;
+package com.cloudyphone.android.controller.commands;
 
 import java.util.Collection;
 

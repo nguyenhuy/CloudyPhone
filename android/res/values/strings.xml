@@ -9,10 +9,14 @@
     <string name="create">Create</string>
     <string name="new_to_cloudy_phone">New to CloudyPhone?</string>
     <string name="create_new_account">Create New Account</string>
+    <string name="logining">Login...</string>
+    <string name="signing">Signing up...</string>
+    <string name="invalid_email_password">Email or password is invalid</string>
 
-    <color name="blue_light">#83BBE7</color>
-    <color name="blue_dark">#3E7DC3</color>
-    <color name="blue_medium">#519AD3</color>
+    <color name="input_border">#CACBCC</color>
+    <color name="blue_light">#049cdb</color>
+    <color name="blue_dark">#003f81</color>
+    <color name="blue_medium">#0064cd</color>
     <color name="blue_text">#1A74BA</color>
 
 </resources>

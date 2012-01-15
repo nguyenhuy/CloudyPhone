@@ -11,23 +11,27 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int blue_dark=0x7f060001;
-        public static final int blue_light=0x7f060000;
-        public static final int blue_medium=0x7f060002;
-        public static final int blue_text=0x7f060003;
+        public static final int blue_dark=0x7f060002;
+        public static final int blue_light=0x7f060001;
+        public static final int blue_medium=0x7f060003;
+        public static final int blue_text=0x7f060004;
+        public static final int input_border=0x7f060000;
     }
     public static final class dimen {
-        public static final int margin=0x7f040003;
-        public static final int padding=0x7f040002;
-        public static final int text_size_edittext=0x7f040000;
-        public static final int text_size_small=0x7f040001;
+        public static final int border_width=0x7f040005;
+        public static final int border_width_focused=0x7f040006;
+        public static final int btn_padding=0x7f040003;
+        public static final int margin=0x7f040000;
+        public static final int round=0x7f040004;
+        public static final int text_size_edittext=0x7f040001;
+        public static final int text_size_small=0x7f040002;
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int btn_green_full_rounded=0x7f020001;
-        public static final int btn_green_full_rounded_focused=0x7f020002;
-        public static final int btn_green_full_rounded_pressed=0x7f020003;
-        public static final int btn_green_full_rounded_selector=0x7f020004;
+        public static final int btn_full_rounded=0x7f020001;
+        public static final int btn_full_rounded_focused=0x7f020002;
+        public static final int btn_full_rounded_pressed=0x7f020003;
+        public static final int btn_full_rounded_selector=0x7f020004;
         public static final int edittext_bottom_rounded=0x7f020005;
         public static final int edittext_bottom_rounded_disable=0x7f020006;
         public static final int edittext_bottom_rounded_selector=0x7f020007;
@@ -53,8 +57,11 @@ public final class R {
         public static final int create_new_account=0x7f050007;
         public static final int email=0x7f050003;
         public static final int hello=0x7f050000;
+        public static final int invalid_email_password=0x7f05000a;
         public static final int login=0x7f050004;
+        public static final int logining=0x7f050008;
         public static final int new_to_cloudy_phone=0x7f050006;
         public static final int password=0x7f050002;
+        public static final int signing=0x7f050009;
     }
 }

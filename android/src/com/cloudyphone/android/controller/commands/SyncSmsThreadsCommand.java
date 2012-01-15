@@ -1,17 +1,17 @@
-package com.cloudyphone.android.controller.sync;
+package com.cloudyphone.android.controller.commands;
 
 import android.content.ContentResolver;
 
-import com.cloudyphone.android.model.contact.ContactsManager;
-import com.cloudyphone.android.model.contact.ParseContacts;
+import com.cloudyphone.android.model.sms.ParseSmsThreads;
+import com.cloudyphone.android.model.sms.SmsManager;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-public class SyncContactsCommand implements Command {
+public class SyncSmsThreadsCommand implements Command {
 	private ContentResolver cr;
 
-	public SyncContactsCommand(ContentResolver cr) {
+	public SyncSmsThreadsCommand(ContentResolver cr) {
 		this.cr = cr;
 	}
 
@@ -27,19 +27,17 @@ public class SyncContactsCommand implements Command {
 			return;
 		}
 
-		ParseContacts contacts = ContactsManager.getAllContacts(cr);
+		// Get the sms threads
+		ParseSmsThreads smsThreads = SmsManager.getSmsThreads(cr);
 		// set the sms threads to be accessible by the current user only
-		contacts.setACL(new ParseACL(parseUser));
+		smsThreads.setACL(new ParseACL(parseUser));
 
+		// Save contacts and messages in Parse
 		try {
-			contacts.save();
+			smsThreads.save();
 		} catch (ParseException e) {
 		}
 
-		// Save contacts images
-		// TODO uncomment this to store images
-		// new SyncContactsImagesCommand(cr, contacts).execute();
-
-		// TODO may notify server
+		// TODO may notify server about the result
 	}
 }

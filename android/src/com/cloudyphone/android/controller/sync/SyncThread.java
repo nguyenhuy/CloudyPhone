@@ -4,6 +4,9 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Looper;
 
+import com.cloudyphone.android.controller.commands.Command;
+import com.cloudyphone.android.controller.commands.SyncContactsCommand;
+import com.cloudyphone.android.controller.commands.SyncSmsThreadsCommand;
 import com.parse.ParseUser;
 
 /* 
