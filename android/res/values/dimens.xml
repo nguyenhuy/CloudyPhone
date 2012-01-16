@@ -4,7 +4,10 @@
     <dimen name="edittext_padding">10dp</dimen>
     <dimen name="text_size_edittext">20dp</dimen>
     <dimen name="text_size_small">20dp</dimen>
-    <dimen name="btn_padding">15dp</dimen>
+    <dimen name="btn_padding_top">10dp</dimen>
+    <dimen name="btn_padding_bottom">10dp</dimen>
+    <dimen name="btn_padding_left">30dp</dimen>
+    <dimen name="btn_padding_right">30dp</dimen>
     <dimen name="round">5dp</dimen>
     <dimen name="border_width">1px</dimen>
     <dimen name="border_width_focused">3px</dimen>

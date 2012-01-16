@@ -15,35 +15,46 @@ public final class R {
         public static final int blue_disable=0x7f060004;
         public static final int blue_light=0x7f060001;
         public static final int blue_medium=0x7f060003;
+        public static final int green_dark=0x7f060007;
+        public static final int green_light=0x7f060005;
+        public static final int green_medium=0x7f060006;
         public static final int input_border=0x7f060000;
     }
     public static final class dimen {
-        public static final int border_width=0x7f040006;
-        public static final int border_width_focused=0x7f040007;
-        public static final int btn_padding=0x7f040004;
+        public static final int border_width=0x7f040009;
+        public static final int border_width_focused=0x7f04000a;
+        public static final int btn_padding_bottom=0x7f040005;
+        public static final int btn_padding_left=0x7f040006;
+        public static final int btn_padding_right=0x7f040007;
+        public static final int btn_padding_top=0x7f040004;
         public static final int edittext_padding=0x7f040001;
         public static final int margin=0x7f040000;
-        public static final int round=0x7f040005;
+        public static final int round=0x7f040008;
         public static final int text_size_edittext=0x7f040002;
         public static final int text_size_small=0x7f040003;
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int btn_full_rounded=0x7f020001;
-        public static final int btn_full_rounded_disable=0x7f020002;
-        public static final int btn_full_rounded_focused=0x7f020003;
-        public static final int btn_full_rounded_pressed=0x7f020004;
-        public static final int btn_full_rounded_selector=0x7f020005;
-        public static final int edittext_bottom_rounded=0x7f020006;
-        public static final int edittext_bottom_rounded_disable=0x7f020007;
-        public static final int edittext_bottom_rounded_selector=0x7f020008;
-        public static final int edittext_no_rounded=0x7f020009;
-        public static final int edittext_no_rounded_disable=0x7f02000a;
-        public static final int edittext_no_rounded_selector=0x7f02000b;
-        public static final int edittext_top_rounded=0x7f02000c;
-        public static final int edittext_top_rounded_disable=0x7f02000d;
-        public static final int edittext_top_rounded_selector=0x7f02000e;
-        public static final int ic_launcher=0x7f02000f;
+        public static final int btn_blue_full_rounded=0x7f020001;
+        public static final int btn_blue_full_rounded_disable=0x7f020002;
+        public static final int btn_blue_full_rounded_focused=0x7f020003;
+        public static final int btn_blue_full_rounded_pressed=0x7f020004;
+        public static final int btn_blue_full_rounded_selector=0x7f020005;
+        public static final int btn_green_full_rounded=0x7f020006;
+        public static final int btn_green_full_rounded_disable=0x7f020007;
+        public static final int btn_green_full_rounded_focused=0x7f020008;
+        public static final int btn_green_full_rounded_pressed=0x7f020009;
+        public static final int btn_green_full_rounded_selector=0x7f02000a;
+        public static final int edittext_bottom_rounded=0x7f02000b;
+        public static final int edittext_bottom_rounded_disable=0x7f02000c;
+        public static final int edittext_bottom_rounded_selector=0x7f02000d;
+        public static final int edittext_no_rounded=0x7f02000e;
+        public static final int edittext_no_rounded_disable=0x7f02000f;
+        public static final int edittext_no_rounded_selector=0x7f020010;
+        public static final int edittext_top_rounded=0x7f020011;
+        public static final int edittext_top_rounded_disable=0x7f020012;
+        public static final int edittext_top_rounded_selector=0x7f020013;
+        public static final int ic_launcher=0x7f020014;
     }
     public static final class id {
         public static final int email_et=0x7f070000;

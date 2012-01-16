@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">CloudyPhone</string>
-    <string name="login">Log in</string>
+    <string name="login">Login</string>
     <string name="register">Register for CloudyPhone</string>
     <string name="new_to_cloudy_phone">New to CloudyPhone?</string>
     <string name="create_new_account">Create New Account</string>
@@ -28,5 +28,8 @@
     <color name="blue_dark">#003f81</color>
     <color name="blue_medium">#0064cd</color>
     <color name="blue_disable">#559FDB</color>
+    <color name="green_light">#62c462</color>
+    <color name="green_medium">#57a957</color>
+    <color name="green_dark">#3d773d</color>
 
 </resources>
