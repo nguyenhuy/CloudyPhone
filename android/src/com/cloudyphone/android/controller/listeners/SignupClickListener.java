@@ -1,5 +1,7 @@
 package com.cloudyphone.android.controller.listeners;
 
+import java.lang.ref.WeakReference;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.View;
@@ -8,33 +10,66 @@ import android.widget.EditText;
 
 import com.cloudyphone.android.R;
 import com.cloudyphone.android.controller.callbacks.MySignUpCallback;
+import com.cloudyphone.android.model.InputValidator;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 public class SignupClickListener implements OnClickListener {
-	private EditText password, email;
 	private Context context;
+	private WeakReference<EditText> emailReference, passwordReference,
+			repeatPasswordReference;
 
 	public SignupClickListener(Context context, EditText email,
-			EditText password) {
+			EditText password, EditText repeatPassword) {
 		this.context = context;
-		this.password = password;
-		this.email = email;
+		this.emailReference = new WeakReference<EditText>(email);
+		this.passwordReference = new WeakReference<EditText>(password);
+		this.repeatPasswordReference = new WeakReference<EditText>(
+				repeatPassword);
 	}
 
 	@Override
 	public void onClick(View v) {
-		ProgressDialog progressDialog = ProgressDialog.show(context, "",
-				context.getString(R.string.signing));
-		progressDialog.setCancelable(true);
+		EditText email = emailReference.get();
+		EditText password = passwordReference.get();
+		EditText repeatPassword = repeatPasswordReference.get();
 
-		ParseUser user = new ParseUser();
-		user.setUsername(email.getText().toString());
-		user.setPassword(password.getText().toString());
+		String emailString = email.getText().toString();
+		String passwordString = password.getText().toString();
+		String passwordRepeatString = repeatPassword.getText().toString();
 
-		SignUpCallback signUpCallback = new MySignUpCallback(context,
-				progressDialog);
+		boolean validEmail = InputValidator.validateEmail(context, emailString);
+		boolean validPassword = InputValidator.validatePassword(context,
+				passwordString);
+		boolean validRepeat = passwordString.equals(passwordRepeatString);
 
-		user.signUpInBackground(signUpCallback);
+		if (!validEmail) {
+			email.setError(context.getString(R.string.email_error));
+		}
+
+		if (!validPassword) {
+			password.setError(context.getString(R.string.password_error));
+		}
+
+		if (!validRepeat) {
+			repeatPassword.setError(context
+					.getString(R.string.password_repeat_error));
+		}
+
+		if (validEmail && validPassword && validRepeat) {
+			// everything is ok
+			ProgressDialog progressDialog = ProgressDialog.show(context, "",
+					context.getString(R.string.signing));
+			progressDialog.setCancelable(true);
+
+			ParseUser user = new ParseUser();
+			user.setUsername(email.getText().toString());
+			user.setPassword(password.getText().toString());
+
+			SignUpCallback signUpCallback = new MySignUpCallback(context,
+					progressDialog);
+
+			user.signUpInBackground(signUpCallback);
+		}
 	}
 }

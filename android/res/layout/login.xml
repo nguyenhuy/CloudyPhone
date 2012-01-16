@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
             android:background="@drawable/btn_full_rounded_selector"
-            android:enabled="false"
             android:padding="@dimen/btn_padding"
             android:text="@string/login"
             android:textColor="@android:color/white"
