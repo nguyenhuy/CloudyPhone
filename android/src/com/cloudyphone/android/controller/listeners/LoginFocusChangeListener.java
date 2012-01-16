@@ -1,20 +1,21 @@
 package com.cloudyphone.android.controller.listeners;
 
 import android.content.Context;
-import android.text.Editable;
+import android.view.View;
+import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.cloudyphone.android.R;
 import com.cloudyphone.android.model.InputValidator;
 
-public class LoginTextWatcher implements android.text.TextWatcher {
+public class LoginFocusChangeListener implements OnFocusChangeListener {
 	private Context context;
 	private EditText email, password;
 	private Button loginBtn;
 
-	public LoginTextWatcher(Context context, EditText email, EditText password,
-			Button loginBtn) {
+	public LoginFocusChangeListener(Context context, EditText email,
+			EditText password, Button loginBtn) {
 		this.context = context;
 		this.email = email;
 		this.password = password;
@@ -22,34 +23,31 @@ public class LoginTextWatcher implements android.text.TextWatcher {
 	}
 
 	@Override
-	public void afterTextChanged(Editable s) {
+	public void onFocusChange(View v, boolean hasFocus) {
+		if (hasFocus) {
+			// user is typing
+			return;
+		}
+
 		boolean validEmail = InputValidator.validateEmail(context, email
 				.getText().toString());
 		boolean validPassword = InputValidator.validatePassword(context,
 				password.getText().toString());
 
-		if (!validEmail) {
+		if (!validEmail && v == email) {
 			email.setError(context.getString(R.string.email_error));
 			loginBtn.setEnabled(false);
+			return;
 		}
 
-		if (!validPassword) {
+		if (!validPassword && v == password) {
 			password.setError(context.getString(R.string.password_error));
 			loginBtn.setEnabled(false);
+			return;
 		}
 
-		if (validEmail && validPassword) {
-			loginBtn.setEnabled(true);
-		}
-	}
-
-	@Override
-	public void beforeTextChanged(CharSequence s, int start, int count,
-			int after) {
-	}
-
-	@Override
-	public void onTextChanged(CharSequence s, int start, int before, int count) {
+		// everything is ok
+		loginBtn.setEnabled(true);
 	}
 
 }

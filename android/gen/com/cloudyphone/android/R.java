@@ -77,6 +77,7 @@ public final class R {
         /**  Password with at least 4 characters 
          */
         public static final int password_regex=0x7f05000c;
+        public static final int password_repeat_error=0x7f05000f;
         public static final int register=0x7f050002;
         public static final int repeat_password=0x7f05000a;
         public static final int signing=0x7f050006;

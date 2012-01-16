@@ -2,13 +2,13 @@ package com.cloudyphone.android.controller.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.TextWatcher;
+import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.cloudyphone.android.R;
 import com.cloudyphone.android.controller.listeners.LoginClickListener;
-import com.cloudyphone.android.controller.listeners.LoginTextWatcher;
+import com.cloudyphone.android.controller.listeners.LoginFocusChangeListener;
 import com.cloudyphone.android.controller.listeners.StartSignupClickListener;
 
 public class LoginActivity extends Activity {
@@ -27,10 +27,10 @@ public class LoginActivity extends Activity {
 		Button signupBtn = (Button) findViewById(R.id.signup_btn);
 
 		// text change listeners
-		TextWatcher textWatcher = new LoginTextWatcher(this, email, password,
-				loginBtn);
-		email.addTextChangedListener(textWatcher);
-		password.addTextChangedListener(textWatcher);
+		OnFocusChangeListener focusChangeListener = new LoginFocusChangeListener(
+				this, email, password, loginBtn);
+		email.setOnFocusChangeListener(focusChangeListener);
+		password.setOnFocusChangeListener(focusChangeListener);
 
 		// login button click listener
 		loginBtn.setOnClickListener(new LoginClickListener(this, email,
