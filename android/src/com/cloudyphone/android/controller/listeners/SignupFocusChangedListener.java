@@ -1,5 +1,7 @@
 package com.cloudyphone.android.controller.listeners;
 
+import java.lang.ref.WeakReference;
+
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -11,15 +13,18 @@ import com.cloudyphone.android.model.InputValidator;
 
 public class SignupFocusChangedListener implements OnFocusChangeListener {
 	private Context context;
-	private EditText email, password, repeatPassword;
 	private Button signupBtn;
+	private WeakReference<EditText> emailReference, passwordReference,
+			repeatPasswordReference;
 
-	public SignupFocusChangedListener(Context context, EditText email,
-			EditText password, EditText repeatPasword, Button signupBtn) {
+	public SignupFocusChangedListener(Context context, EditText emailEditText,
+			EditText passwordEditText, EditText repeatPaswordEditText,
+			Button signupBtn) {
 		this.context = context;
-		this.email = email;
-		this.password = password;
-		this.repeatPassword = repeatPasword;
+		this.emailReference = new WeakReference<EditText>(emailEditText);
+		this.passwordReference = new WeakReference<EditText>(passwordEditText);
+		this.repeatPasswordReference = new WeakReference<EditText>(
+				repeatPaswordEditText);
 		this.signupBtn = signupBtn;
 	}
 
@@ -30,6 +35,8 @@ public class SignupFocusChangedListener implements OnFocusChangeListener {
 			return;
 		}
 
+		EditText email = emailReference.get(), password = passwordReference
+				.get(), repeatPassword = repeatPasswordReference.get();
 		String passwordString = password.getText().toString();
 		String passwordRepeatString = repeatPassword.getText().toString();
 
@@ -39,26 +46,19 @@ public class SignupFocusChangedListener implements OnFocusChangeListener {
 				passwordString);
 		boolean validRepeat = passwordString.equals(passwordRepeatString);
 
-		if (!validEmail && v == email) {
+		if (v == email && !validEmail) {
 			email.setError(context.getString(R.string.email_error));
 			signupBtn.setEnabled(false);
-			return;
-		}
-
-		if (!validPassword && v == password) {
+		} else if (v == password && !validPassword) {
 			password.setError(context.getString(R.string.password_error));
 			signupBtn.setEnabled(false);
-			return;
-		}
-
-		if (!validRepeat && v == repeatPassword) {
+		} else if (v == repeatPassword && !validRepeat) {
 			repeatPassword.setError(context
 					.getString(R.string.password_repeat_error));
 			signupBtn.setEnabled(false);
-			return;
+		} else {
+			// everything is ok
+			signupBtn.setEnabled(true);
 		}
-
-		// everything is ok
-		signupBtn.setEnabled(true);
 	}
 }

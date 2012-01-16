@@ -19,7 +19,7 @@
     <string name="password_regex">^*$</string>
 
     <!-- Errors -->
-    <string name="password_error">Password must be more than 3 characters</string>
+    <string name="password_error">Password must be more at least 4 characters</string>
     <string name="email_error">Email is invalid</string>
     <string name="password_repeat_error">Password and Repeat Password does not match</string>
 
