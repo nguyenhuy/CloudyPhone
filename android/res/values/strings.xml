@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, CloudyPhoneActivity!</string>
     <string name="app_name">CloudyPhone</string>
-    <string name="password">Password</string>
-    <string name="email">Email</string>
-    <string name="login">Login</string>
-    <string name="create">Create</string>
+    <string name="login">Log in</string>
+    <string name="register">Register for CloudyPhone</string>
     <string name="new_to_cloudy_phone">New to CloudyPhone?</string>
     <string name="create_new_account">Create New Account</string>
     <string name="logining">Login...</string>
     <string name="signing">Signing up...</string>
     <string name="invalid_email_password">Email or password is invalid</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="repeat_password">Repeat password</string>
+    <!-- Regular Expressions for input validation -->
+    <!-- Email contains @ -->
+    <string name="email_regex">^*$</string>
+    <!-- Password with at least 4 characters -->
+    <string name="password_regex">^*$</string>
+
+    <!-- Errors -->
+    <string name="password_error">Password must be more than 3 characters</string>
+    <string name="email_error">Email is invalid</string>
 
     <color name="input_border">#CACBCC</color>
     <color name="blue_light">#049cdb</color>
     <color name="blue_dark">#003f81</color>
     <color name="blue_medium">#0064cd</color>
-    <color name="blue_text">#1A74BA</color>
+    <color name="blue_disable">#559FDB</color>
 
 </resources>

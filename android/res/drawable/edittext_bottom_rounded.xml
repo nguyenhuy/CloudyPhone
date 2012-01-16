@@ -14,4 +14,10 @@
         android:width="@dimen/border_width"
         android:color="@color/input_border" />
 
+    <padding
+        android:bottom="@dimen/edittext_padding"
+        android:left="@dimen/edittext_padding"
+        android:right="@dimen/edittext_padding"
+        android:top="@dimen/edittext_padding" />
+
 </shape>

@@ -15,8 +15,8 @@ public class SignupClickListener implements OnClickListener {
 	private EditText password, email;
 	private Context context;
 
-	public SignupClickListener(Context context, EditText password,
-			EditText email) {
+	public SignupClickListener(Context context, EditText email,
+			EditText password) {
 		this.context = context;
 		this.password = password;
 		this.email = email;

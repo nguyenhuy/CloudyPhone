@@ -18,7 +18,8 @@
             android:layout_marginLeft="@dimen/margin"
             android:layout_marginRight="@dimen/margin"
             android:background="@drawable/edittext_top_rounded_selector"
-            android:hint="@string/email"
+            android:hint="@string/email_hint"
+            android:inputType="textEmailAddress"
             android:maxLines="1"
             android:textSize="@dimen/text_size_edittext" />
 
@@ -28,8 +29,20 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin"
             android:layout_marginRight="@dimen/margin"
+            android:background="@drawable/edittext_no_rounded_selector"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textSize="@dimen/text_size_edittext" />
+
+        <EditText
+            android:id="@+id/password_repeat_set"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
             android:background="@drawable/edittext_bottom_rounded_selector"
-            android:hint="@string/password"
+            android:hint="@string/repeat_password"
             android:inputType="textPassword"
             android:maxLines="1"
             android:textSize="@dimen/text_size_edittext" />
@@ -40,8 +53,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
             android:background="@drawable/btn_full_rounded_selector"
+            android:enabled="false"
             android:padding="@dimen/btn_padding"
-            android:text="@string/create"
+            android:text="@string/register"
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size_small" >
         </Button>
