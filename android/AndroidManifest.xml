@@ -15,8 +15,8 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
-            android:label="@string/app_name"
-            android:name=".controller.activities.CloudyPhoneActivity" >
+            android:name=".controller.activities.WelcomeActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,10 +24,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".controller.activities.CloudyPhoneActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
             android:name=".controller.activities.LoginActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name=".controller.activities.SignupActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".controller.activities.ResetPasswordActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
 
         <!-- Parse Push notification -->

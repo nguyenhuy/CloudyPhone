@@ -3,20 +3,24 @@
 
     <string name="app_name">CloudyPhone</string>
     <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="forgot_password">Forgot your password?</string>
     <string name="register">Register for CloudyPhone</string>
-    <string name="new_to_cloudy_phone">New to CloudyPhone?</string>
-    <string name="create_new_account">Create New Account</string>
-    <string name="logining">Login...</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="logging">Logging in...</string>
     <string name="signing">Signing up...</string>
     <string name="invalid_email_password">Email or password is invalid</string>
     <string name="password_hint">Password</string>
     <string name="email_hint">Email</string>
-    <string name="repeat_password">Repeat password</string>
-
+    <string name="repeat_password">Confirm password</string>
+    <string name="enter_email_to_reset_password">Enter email to reset password</string>
+    <string name="reset_it">Reset it</string>
+    <string name="resetting">Resetting...</string>
+    <string name="cancel">Cancel</string>
     <!-- Errors -->
-    <string name="password_error">Password must be more at least 4 characters</string>
+    <string name="password_error">Password must be at least 4 characters</string>
     <string name="email_error">Email is invalid</string>
-    <string name="password_repeat_error">Password and Repeat Password does not match</string>
+    <string name="password_repeat_error">Password and Confirm password must be same</string>
 
     <color name="input_border">#CACBCC</color>
     <color name="blue_light">#049cdb</color>

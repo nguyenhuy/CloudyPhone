@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+
+    <solid android:color="@android:color/white" />
+
+    <corners
+        android:bottomLeftRadius="@dimen/round"
+        android:bottomRightRadius="@dimen/round"
+        android:topLeftRadius="@dimen/round"
+        android:topRightRadius="@dimen/round" />
+
+    <stroke
+        android:width="@dimen/border_width"
+        android:color="@color/input_border" />
+
+    <padding
+        android:bottom="@dimen/edittext_padding"
+        android:left="@dimen/edittext_padding"
+        android:right="@dimen/edittext_padding"
+        android:top="@dimen/edittext_padding" />
+
+</shape>

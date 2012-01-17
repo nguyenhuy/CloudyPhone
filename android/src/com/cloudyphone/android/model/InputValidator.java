@@ -11,7 +11,7 @@ public class InputValidator {
 	 * @return
 	 */
 	public static final boolean validateEmail(String email) {
-		return email.contains("@");
+		return email.contains("@") && email.length() >= 5;
 	}
 
 	/**

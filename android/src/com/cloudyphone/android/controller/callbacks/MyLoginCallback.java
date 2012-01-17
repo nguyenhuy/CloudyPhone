@@ -29,6 +29,7 @@ public class MyLoginCallback extends LogInCallback {
 		if (e == null && user != null) {
 			// Hooray! The user is logged in.
 			Intent i = new Intent(context, CloudyPhoneActivity.class);
+			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			context.startActivity(i);
 		} else if (user == null) {
 			// Sign up didn't succeed. The username or password was invalid.

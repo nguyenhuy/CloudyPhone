@@ -6,26 +6,22 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.cloudyphone.android.R;
-import com.cloudyphone.android.controller.listeners.SignupClickListener;
+import com.cloudyphone.android.controller.listeners.ResetPasswordClickListener;
 
-public class SignupActivity extends Activity {
+public class ResetPasswordActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.signup);
+		setContentView(R.layout.reset_password);
 
 		setListeners();
 	}
 
 	private void setListeners() {
 		EditText email = (EditText) findViewById(R.id.email_et);
-		EditText password = (EditText) findViewById(R.id.password_et);
-		EditText passwordRepeat = (EditText) findViewById(R.id.password_repeat_set);
-		Button signupBtn = (Button) findViewById(R.id.signup_btn);
+		Button resetBtn = (Button) findViewById(R.id.reset_password_btn);
 
 		// sign up btn click listener
-		signupBtn.setOnClickListener(new SignupClickListener(this, email,
-				password, passwordRepeat));
+		resetBtn.setOnClickListener(new ResetPasswordClickListener(this, email));
 	}
 }

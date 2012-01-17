@@ -61,12 +61,12 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/new_to_cloudy_phone"
+            android:text="@string/forgot_password"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_size_small" />
 
         <Button
-            android:id="@+id/signup_btn"
+            android:id="@+id/reset_password_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
@@ -75,7 +75,7 @@
             android:paddingLeft="@dimen/btn_padding_left"
             android:paddingRight="@dimen/btn_padding_right"
             android:paddingTop="@dimen/btn_padding_top"
-            android:text="@string/create_new_account"
+            android:text="@string/reset_it"
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size_small" />
     </LinearLayout>

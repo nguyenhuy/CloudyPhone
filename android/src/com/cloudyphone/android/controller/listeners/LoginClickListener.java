@@ -46,7 +46,7 @@ public class LoginClickListener implements OnClickListener {
 			// everything is ok
 			// Show Progress dialog
 			ProgressDialog pd = ProgressDialog.show(context, "",
-					context.getString(R.string.logining));
+					context.getString(R.string.logging));
 			pd.setCancelable(true);
 
 			ParseUser.logInInBackground(emailString, passwordString,
