@@ -38,9 +38,8 @@ public class SignupClickListener implements OnClickListener {
 		String passwordString = password.getText().toString();
 		String passwordRepeatString = repeatPassword.getText().toString();
 
-		boolean validEmail = InputValidator.validateEmail(context, emailString);
-		boolean validPassword = InputValidator.validatePassword(context,
-				passwordString);
+		boolean validEmail = InputValidator.validateEmail(emailString);
+		boolean validPassword = InputValidator.validatePassword(passwordString);
 		boolean validRepeat = passwordString.equals(passwordRepeatString);
 
 		if (!validEmail) {

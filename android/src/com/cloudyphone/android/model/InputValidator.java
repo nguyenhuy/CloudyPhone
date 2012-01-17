@@ -1,25 +1,40 @@
 package com.cloudyphone.android.model;
 
-import android.content.Context;
-
-import com.cloudyphone.android.R;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InputValidator {
-	public static final boolean validateEmail(Context context, String email) {
-		return validate(email, context.getString(R.string.email_regex));
+	/**
+	 * Validate the email, with 1 condition: the email contains @
+	 * 
+	 * @param email
+	 * @return
+	 */
+	public static final boolean validateEmail(String email) {
+		return email.contains("@");
 	}
 
-	public static final boolean validatePassword(Context context,
-			String password) {
-		return validate(password, context.getString(R.string.password_regex));
+	/**
+	 * Validate the password, with 1 condition: at least 4 characters
+	 * 
+	 * @param context
+	 * @param password
+	 * @return
+	 */
+	public static final boolean validatePassword(String password) {
+		return password.length() >= 4;
 	}
 
+	/**
+	 * Validate a string using the format which is a regex
+	 * 
+	 * @param source
+	 * @param format
+	 * @return
+	 */
 	public static final boolean validate(String source, String format) {
-		return false;
-
-		// TODO enable this, test regexes in strings.xml
-		// Pattern pattern = Pattern.compile(format);
-		// Matcher matcher = pattern.matcher(source);
-		// return matcher.matches();
+		Pattern pattern = Pattern.compile(format);
+		Matcher matcher = pattern.matcher(source);
+		return matcher.matches();
 	}
 }

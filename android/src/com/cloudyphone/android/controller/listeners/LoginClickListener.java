@@ -31,9 +31,8 @@ public class LoginClickListener implements OnClickListener {
 		String emailString = email.getText().toString();
 		String passwordString = password.getText().toString();
 
-		boolean validEmail = InputValidator.validateEmail(context, emailString);
-		boolean validPassword = InputValidator.validatePassword(context,
-				passwordString);
+		boolean validEmail = InputValidator.validateEmail(emailString);
+		boolean validPassword = InputValidator.validatePassword(passwordString);
 
 		if (!validEmail) {
 			email.setError(context.getString(R.string.email_error));

@@ -12,11 +12,6 @@
     <string name="password_hint">Password</string>
     <string name="email_hint">Email</string>
     <string name="repeat_password">Repeat password</string>
-    <!-- Regular Expressions for input validation -->
-    <!-- Email contains @ -->
-    <string name="email_regex">^*$</string>
-    <!-- Password with at least 4 characters -->
-    <string name="password_regex">^*$</string>
 
     <!-- Errors -->
     <string name="password_error">Password must be more at least 4 characters</string>

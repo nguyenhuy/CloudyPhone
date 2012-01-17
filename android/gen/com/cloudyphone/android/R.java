@@ -71,24 +71,17 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f050000;
         public static final int create_new_account=0x7f050004;
-        public static final int email_error=0x7f05000e;
+        public static final int email_error=0x7f05000c;
         public static final int email_hint=0x7f050009;
-        /**  Regular Expressions for input validation 
- Email contains @ 
-         */
-        public static final int email_regex=0x7f05000b;
         public static final int invalid_email_password=0x7f050007;
         public static final int login=0x7f050001;
         public static final int logining=0x7f050005;
         public static final int new_to_cloudy_phone=0x7f050003;
         /**  Errors 
          */
-        public static final int password_error=0x7f05000d;
+        public static final int password_error=0x7f05000b;
         public static final int password_hint=0x7f050008;
-        /**  Password with at least 4 characters 
-         */
-        public static final int password_regex=0x7f05000c;
-        public static final int password_repeat_error=0x7f05000f;
+        public static final int password_repeat_error=0x7f05000d;
         public static final int register=0x7f050002;
         public static final int repeat_password=0x7f05000a;
         public static final int signing=0x7f050006;
